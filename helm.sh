@@ -12,4 +12,5 @@ fi
 if [ "$1" == "uninstall" ]; then
   helm uninstall ngx-ingres
   kubectl delete -f external-dns-dev.yml
+  helm uninstall filebeat
 fi
