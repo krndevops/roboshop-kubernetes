@@ -17,4 +17,5 @@ if [ "$1" == "uninstall" ]; then
   kubectl delete -f external-dns.yml
   helm uninstall filebeat
   helm uninstall prometheus
+  kubectl delete -f https://github.com/kubernetes-sigs/metrics-server/releases/latest/download/components.yaml
 fi
