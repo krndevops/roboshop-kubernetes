@@ -9,6 +9,7 @@ if [ "$1" == "install" ]; then
   kubectl apply -f external-dns.yml
   helm upgrade -i filebeat elastic/filebeat -f filebeat.yml
   helm upgrade -i prometheus prometheus-community/kube-prometheus-stack -f prometheus.yml
+  kubectl apply -f https://github.com/kubernetes-sigs/metrics-server/releases/latest/download/components.yaml
 fi
 
 if [ "$1" == "uninstall" ]; then
