@@ -10,6 +10,8 @@ if [ "$1" == "install" ]; then
   helm upgrade -i filebeat elastic/filebeat -f filebeat.yml
   helm upgrade -i prometheus prometheus-community/kube-prometheus-stack -f prometheus.yml
   kubectl apply -f https://github.com/kubernetes-sigs/metrics-server/releases/latest/download/components.yaml
+  kubectl create namespace argocd
+  kubectl apply -n argocd -f argocd.yml
 fi
 
 if [ "$1" == "uninstall" ]; then
@@ -18,4 +20,5 @@ if [ "$1" == "uninstall" ]; then
   helm uninstall filebeat
   helm uninstall prometheus
   kubectl delete -f https://github.com/kubernetes-sigs/metrics-server/releases/latest/download/components.yaml
+  kubectl delete namespace argocd
 fi
