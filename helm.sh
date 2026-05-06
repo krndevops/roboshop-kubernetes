@@ -26,3 +26,5 @@ fi
 #ArgoCD Password
 
 # kubectl -n argocd get secret argocd-initial-admin-secret -o jsonpath="{.data.password}" | base64 -d && echo
+
+#argocd login argocd.kdevops.online --username admin --password $(kubectl -n argocd get secret argocd-initial-admin-secret -o jsonpath="{.data.password}" | base64 -d && echo) --insecure
