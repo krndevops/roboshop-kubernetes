@@ -33573,7 +33573,7 @@ metadata:
 spec:
   ingressClassName: nginx
   rules:
-    - host: argocd-dev.kdevops.online
+    - host: argocd.kdevops.online
       http:
         paths:
           - pathType: Prefix
