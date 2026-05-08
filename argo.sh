@@ -10,7 +10,7 @@ argocd login argocd.kdevops.online --username admin --password $(kubectl -n argo
 
 for i in cart catalogue user payment shipping frontend ; do
 
-  argocd app create $i --repo https://github.com/krndevops/$i --path helm --dest-namespace default --dest-server https://kubernetes.default.svc --grpc-web --values prod/$i.yaml
+  argocd app create $i --repo https://github.com/krndevops/$i --path helm/chart --dest-namespace default --dest-server https://kubernetes.default.svc --grpc-web --values prod/$i.yaml
   argocd app sync $i
 
 done
