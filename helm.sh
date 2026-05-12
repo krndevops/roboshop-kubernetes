@@ -5,7 +5,7 @@ if [ "$1" == "install" ]; then
   helm repo add prometheus-community https://prometheus-community.github.io/helm-charts
   helm repo update
 
-  helm upgrade -i ngx-ingres ingress-nginx/ingress-nginx
+  helm upgrade -i ngx-ingres ingress-nginx/ingress-nginx -f ingres.yaml
   kubectl apply -f external-dns.yml
   helm upgrade -i filebeat elastic/filebeat -f filebeat.yml
   helm upgrade -i prometheus prometheus-community/kube-prometheus-stack -f prometheus.yml
